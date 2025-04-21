@@ -1,0 +1,107 @@
+$button-background-color: #ff00f2; 
+$background-color: #327334; // Green background
+$card-color: #000; // Black for face-down cards
+$card-width: 100px;
+$card-height: 180px;
+$card-border-radius: 8px;
+$card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+$card-hover-scale: 1.1;
+$card-gap: 20px;
+$card-table-columns: 3; // Number of cards per row
+$card-table-gap: 20px; // Space between cards
+$card-table-mobile-columns: 2; // Number of cards per row on mobile
+$card-table-mobile-gap: 15px; // Space between cards on mobile
+$card-table-mobile-width: 80px; // Card width on mobile
+$card-table-mobile-height: 120px; // Card height on mobile
+$card-table-mobile-border-radius: 8px; // Card border radius on mobile
+$card-table-mobile-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Card shadow on mobile
+$card-table-mobile-hover-scale: 1.1; // Card hover scale on mobile
+$card-table-mobile-transition: transform 0.3s ease; // Card transition on mobile
+$card-table-mobile-transform: scale(1.1); // Card transform on mobile
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+  height: 100vh;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.card-table {
+  display: grid;
+  grid-template-columns: repeat($card-table-columns, 100px); // 3 cards per row
+  grid-gap: $card-table-gap; // Space between cards
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat($card-table-mobile-columns, 80px); // Adjust for smaller screens
+    grid-gap: $card-table-mobile-gap;
+  }
+}
+
+.card {
+  width: $card-width;
+  height: $card-height;
+  background: url('images/cardBack.png') no-repeat center center;
+  opacity: 1; 
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  transition: $card-table-mobile-transition;
+  color: #000000; // or another visible color
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: $card-table-mobile-width;
+    height: $card-table-mobile-height; // Adjust card size for smaller screens
+  }
+
+  &:hover {
+    transform: scale($card-hover-scale); // Slight zoom effect on hover
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+button {
+  padding: 10px 24px;
+  background-color: #fff;
+  color: $button-background-color;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: $button-background-color;
+  color: #fff;
+}
